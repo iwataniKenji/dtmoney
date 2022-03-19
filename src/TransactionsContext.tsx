@@ -12,8 +12,6 @@ interface Transaction {
 
 type TransactionInput = Omit<Transaction, "id" | "createdAt">;
 
-// type TransactionInput = Pick<Transaction, 'title' | 'amount' | 'type' | 'category'>
-
 // ReactNode = tipagem geral para children (componentes inteiros)
 interface TransactionsProviderProps {
   children: ReactNode;
@@ -21,10 +19,12 @@ interface TransactionsProviderProps {
 
 interface TransactionsContextData {
   transactions: Transaction[];
-  createTransaction: (transaction: TransactionInput) => void;
+  createTransaction: (transaction: TransactionInput) => Promise<void>;
 }
 
-export const TransactionsContext = createContext<TransactionsContextData>({} as TransactionsContextData);
+export const TransactionsContext = createContext<TransactionsContextData>(
+  {} as TransactionsContextData
+);
 
 // recebe todos os children e disponibiliza dados
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
@@ -37,9 +37,16 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       .then((response) => setTransactions(response.data.transactions));
   }, []);
 
-  function createTransaction(transaction: TransactionInput) {
+  async function createTransaction(transactionInput: TransactionInput) {
     // post -> usado para inserção
-    api.post("/transactions", transaction);
+    const response = await api.post("/transactions", {
+      ...transactionInput,
+      createdAt: new Date(),
+    });
+    const { transaction } = response.data; // salvando os dados de transação que ficam no axios
+
+    // adicionando o novo input ao state de transações
+    setTransactions([...transactions, transaction]);
   }
 
   // quem providencia os dados do contexto para todos os children
