@@ -1,17 +1,17 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
 import totalImg from "../../assets/total.svg";
-import { TransactionsContext } from '../../TransactionsContext';
+import { TransactionsContext } from "../../TransactionsContext";
 
 import { Container } from "./styles";
 
 export function Summary() {
   // guardar dados do contexto em uma constante
-  const transactions = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext);
 
   console.log(transactions);
-  
+
   return (
     <Container>
       <div>
@@ -28,7 +28,7 @@ export function Summary() {
         </header>
         <strong>- R$500,00</strong>
       </div>
-      <div className='highlight-background'>
+      <div className="highlight-background">
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
