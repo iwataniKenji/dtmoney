@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import { TransactionsContext } from './TransactionsContext';
+import { TransactionsProvider } from "./TransactionsContext";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -22,8 +22,9 @@ export function App() {
     setIsNewTransactionModalOpen(false);
   }
 
+  // children de "TransactionsProvider" recebem dados do contexto retornado de "TransactionsContext"
   return (
-    <TransactionsContext.Provider value={[]}>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
 
       <Dashboard />
@@ -32,8 +33,8 @@ export function App() {
         isOpen={isNewTransactionModalOpen}
         onRequestClose={handleCloseNewTransactionModal}
       ></NewTransactionModal>
-      
+
       <GlobalStyle />
-    </TransactionsContext.Provider>
+    </TransactionsProvider>
   );
 }
