@@ -1,6 +1,6 @@
-import { FormEvent, useState, useContext } from "react";
+import { FormEvent, useState } from "react";
 import Modal from "react-modal";
-import { TransactionsContext } from "../../TransactionsContext";
+import { useTransactions } from '../../hooks/useTransactions';
 
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
@@ -18,7 +18,7 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   // dados do contexto
-  const { createTransaction } = useContext(TransactionsContext);
+  const { createTransaction } = useTransactions();
 
   // state inicial do formulário do modal
   const [title, setTitle] = useState("");
