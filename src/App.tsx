@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { NewTransactionModal } from "./components/NewTransactionModal";
+import { TransactionsContext } from './TransactionsContext';
+
 import { GlobalStyle } from "./styles/global";
 
 // acessibilidade -> referenciar o elemento root alertando impossibilidade de acesso aos elementos abaixo do modal
@@ -21,7 +23,7 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionsContext.Provider value={[]}>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
 
       <Dashboard />
@@ -32,6 +34,6 @@ export function App() {
       ></NewTransactionModal>
       
       <GlobalStyle />
-    </>
+    </TransactionsContext.Provider>
   );
 }
