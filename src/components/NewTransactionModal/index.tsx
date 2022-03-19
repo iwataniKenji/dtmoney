@@ -17,10 +17,9 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
-  // dados do contexto
   const { createTransaction } = useTransactions();
 
-  // state inicial do formulário do modal
+  // modal form initial state
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
@@ -36,13 +35,13 @@ export function NewTransactionModal({
       type,
     });
 
-    // restaurar dados do input
+    // clean input data
     setTitle('');
     setAmount(0);
     setCategory('');
     setType('deposit');
 
-    // fechar modal após criar transação (async await)
+    // close modal after save the data (async await)
     onRequestClose();
   }
 
@@ -61,10 +60,10 @@ export function NewTransactionModal({
         <img src={closeImg} alt="Fechar modal" />
       </button>
       <Container onSubmit={handleCreateNewTransaction}>
-        <h2>Cadastrar transação</h2>
+        <h2>Register transaction</h2>
 
         <input
-          placeholder="Título"
+          placeholder="Title"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
@@ -86,7 +85,7 @@ export function NewTransactionModal({
             activeColor="green"
           >
             <img src={incomeImg} alt="Entrada" />
-            <span>Entrada</span>
+            <span>Income</span>
           </RadioBox>
 
           <RadioBox
@@ -98,17 +97,17 @@ export function NewTransactionModal({
             activeColor="red"
           >
             <img src={outcomeImg} alt="Saída" />
-            <span>Saída</span>
+            <span>Expenses</span>
           </RadioBox>
         </TransactionTypeContainer>
 
         <input
-          placeholder="Categoria"
+          placeholder="Category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Save</button>
       </Container>
     </Modal>
   );

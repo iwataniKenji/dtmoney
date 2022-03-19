@@ -7,7 +7,7 @@ import { TransactionsProvider } from "./hooks/useTransactions";
 
 import { GlobalStyle } from "./styles/global";
 
-// acessibilidade -> referenciar o elemento root alertando impossibilidade de acesso aos elementos abaixo do modal
+// accessibility -> reference root
 Modal.setAppElement("#root");
 
 export function App() {
@@ -22,7 +22,6 @@ export function App() {
     setIsNewTransactionModalOpen(false);
   }
 
-  // children de "TransactionsProvider" recebem dados do contexto retornado de "TransactionsContext"
   return (
     <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />

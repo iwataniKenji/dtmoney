@@ -4,18 +4,16 @@ import { createServer, Model } from "miragejs";
 import { App } from "./App";
 
 createServer({
-  // banco de dados interno
   models: {
     transaction: Model,
   },
 
   seeds(server) {
     server.db.loadData({
-      // nome do model acima no plural
       transactions: [
         {
           id: 1,
-          title: "Freelance de website",
+          title: "Freelance job",
           type: "deposit",
           category: "Dev",
           amount: 6000,
@@ -23,9 +21,9 @@ createServer({
         },
         {
           id: 2,
-          title: "Aluguel",
+          title: "Rent",
           type: "withdraw",
-          category: "Casa",
+          category: "Home",
           amount: 1100,
           createdAt: new Date("2021-02-14 11:00:00"),
         },
@@ -33,24 +31,21 @@ createServer({
     });
   },
 
-  // routes -> rotas da api fictícia
+  // routes -> fake api routes
   routes() {
-    // endereçamento inserido no useEffect
     this.namespace = "api";
 
-    // quando houver request get na rota "./api/transactions" -> retornar objeto
     this.get("/transactions", () => {
       return this.schema.all("transaction");
     });
 
-    // request -> dados enviados para "/transactions"
     this.post("/transactions", (schema, request) => {
-      // formato de texto -> objeto de js
+      // text format -> js object
       const data = JSON.parse(request.requestBody);
 
-      // schema = banco de dados
-      // 1 - transaction = qual model está inserindo
-      // 2 - data = dados que serão transferidos para o model
+      // schema = database
+      // 1 - transaction = which model is insert
+      // 2 - data = data that will be transferred to model
       return schema.create("transaction", data);
     });
   },

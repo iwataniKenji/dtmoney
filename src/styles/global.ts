@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  // porcentagem se adapta à preferência do usuário, mas valores fixos não
+  // percentage adapts to user's preferences
   html {
     @media (max-width: 1080px) {
       font-size: 93.75%; // 15px
@@ -48,20 +48,20 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-  // seleciona tudo que está desabilitado
+  // selects everything that is disabled
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed; 
   }
 
-  // elemento do background atrás do modal
+  // background behind the modal
   .react-modal-overlay {
     background: rgba(0, 0, 0, 0.5);
 
-    // sempre fica em cima do viewport
+    // always on viewport
     position: fixed;
     
-    // ocupa tela inteira
+    // to fill the screen
     top: 0;
     bottom: 0;
     right: 0;
@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 
-  // elemento do modal em si
+  // the modal
   .react-modal-content {
     width: 100%;
     max-width: 576px;

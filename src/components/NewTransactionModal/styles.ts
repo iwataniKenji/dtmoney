@@ -20,12 +20,12 @@ export const Container = styled.form`
     font-weight: 400;
     font-size: 1rem;
 
-    // estilização do texto placeholder
+    // placeholder styling
     &::placeholder {
       color: var(--text-body);
     }
 
-    // hack -> todo input que há input antes
+    // spacing between elements but not the first and last one
     & + input {
       margin-top: 1rem;
     }
@@ -84,7 +84,7 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
   transition: border-color 0.2s;
 
-  // escurece 10% do cinza
+  // darkens 10%
   &:hover {
     border-color: ${darken(0.1, "#d7d7d7")};
   }

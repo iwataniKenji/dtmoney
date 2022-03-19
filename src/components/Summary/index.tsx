@@ -6,10 +6,9 @@ import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
 
 export function Summary() {
-  // guardar dados do contexto em uma constante
+  // getting context data
   const { transactions } = useTransactions();
 
-  // calcula saldo das transações e retorna valores do sumário
   const summary = transactions.reduce(
     (acc, transaction) => {
       if (transaction.type === "deposit") {
@@ -20,11 +19,11 @@ export function Summary() {
         acc.total -= transaction.amount;
       }
 
-      // retorna acumulador com deposits, withdraws e total
+      // return acc with deposits, withdraws and total
       return acc;
     },
     {
-      // valores iniciais
+      // starter
       deposits: 0,
       withdraws: 0,
       total: 0,
@@ -35,7 +34,7 @@ export function Summary() {
     <Container>
       <div>
         <header>
-          <p>Entradas</p>
+          <p>Income</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
         <strong>
@@ -47,7 +46,7 @@ export function Summary() {
       </div>
       <div>
         <header>
-          <p>Saídas</p>
+          <p>Expenses</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
         <strong>
@@ -60,7 +59,7 @@ export function Summary() {
       </div>
       <div className="highlight-background">
         <header>
-          <p>Total</p>
+          <p>Balance</p>
           <img src={totalImg} alt="Total" />
         </header>
         <strong>
