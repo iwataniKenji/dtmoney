@@ -41,7 +41,7 @@
 $ git clone https://github.com/iwataniKenji/dtmoney.git
 
 # Access the project directory
-$ cd letmeask
+$ cd dtmoney
 
 # Download dependencies
 $ yarn
