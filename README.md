@@ -1,8 +1,6 @@
 <section align="center">
-    <img width="192px" height="69px" src="./src/assets/logo.png" />
+    <img src="./src/assets/cover.jpg" />
 </section>
-
----
 
 <h2 align="center">Summary</h2>
 
