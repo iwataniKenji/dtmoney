@@ -35,7 +35,7 @@ createServer({
   routes() {
     this.namespace = "api";
 
-    this.get("/transactions", () => {
+    this.get("https://dtmoney-lime.vercel.app/api/transactions", () => {
       return this.schema.all("transaction");
     });
 
