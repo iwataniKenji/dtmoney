@@ -18,11 +18,12 @@
 <H2 id="about">📙 About</H2>
 
 <p>Developed mostly using React and Typescript, dtmoney is a basic application used for financial management. It has a input for new transactions including deposits and withdraws. It also shows all your account movements and the balance on the main screen.</p>
-<and>Originally created on Ignite from <a href="https://www.rocketseat.com.br/">Rocketseat</a> and made by <a href="https://www.linkedin.com/in/kleverson-kenji-iwatani/">Kenji Iwatani</a></p>
+<p>This project used <a href="https://vercel.com/">Vercel</a> for deployment.</p>
+<p>Originally created on Ignite from <a href="https://www.rocketseat.com.br/">Rocketseat</a> and made by <a href="https://www.linkedin.com/in/kleverson-kenji-iwatani/">Kenji Iwatani</a></p>
 
-<!-- <p>
-    <h3><a href="https://letmeask-c10c3.web.app/">Check website &rarr;</a></h3>
-</p> -->
+<p>
+    <h3><a href="https://dtmoney-lime.vercel.app/">Check website &rarr;</a></h3>
+</p>
 
 ---
 
@@ -57,4 +58,5 @@ $ yarn start
 - [x] <a href="https://styled-components.com/">Styled Components</a>
 - [x] <a href="https://miragejs.com/">Miragejs</a>
 - [x] <a href="https://polished.js.org/">Polished</a>
+- [x] <a href="https://vercel.com/">Vercel</a>
 
